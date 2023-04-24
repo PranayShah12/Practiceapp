@@ -8,6 +8,7 @@ import Navbar from './Navbar';
 import { BrowserRouter } from 'react-router-dom';
 import Cocktails from './Cocktails';
 import Cocktaildetails from './Cocktaildetails';
+import Home from './Home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +16,7 @@ root.render(
     <BrowserRouter>
       <Navbar />
       <Routes>
+        <Route path="/Home" element={<Home />}></Route>
         <Route path="/Cocktails" element={<Cocktails />}></Route>
         <Route path="/Cocktails/:id" element={<Cocktaildetails />}></Route>
       </Routes>
