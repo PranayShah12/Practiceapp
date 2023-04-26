@@ -31,7 +31,8 @@ export default function Cocktails() {
             />
             <hr />
             <div className="row">
-                {Cocktaillist.map((item) => {
+                {Cocktaillist === null && <h1>Details Not Found.....</h1>}
+                {Cocktaillist && Cocktaillist.map((item) => {
                     let {
                         idDrink,
                         strDrinkThumb,
