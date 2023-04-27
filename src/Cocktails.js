@@ -1,21 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { wrapperContext } from "./App";
 
 
 export default function Cocktails() {
     const [Cocktaillist, setCocktaillist] = useState([]);
     const [searchvalue, setsearchvalue] = useState("")
-
+    const navigate = useNavigate()
     // const [loading, setloading] = useState();
+    const { searchFormValue } = useContext(wrapperContext)
 
     useEffect(() => {
-        fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchvalue}`)
+        fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchFormValue}`)
             .then((resp) => resp.json())
             .then((data) => {
                 setCocktaillist(data.drinks);
                 // setloading(false);
             })
-    }, [searchvalue]);
+    }, [searchFormValue]);
 
     // console.log(Cocktaillist);
 
@@ -24,10 +26,10 @@ export default function Cocktails() {
             <h2>Cocktail List</h2>
             <hr />
             <input
-                value={searchvalue}
+                // value={searchvalue}
                 placeholder="search your drinks....."
                 className="form-control"
-                onChange={(e) => setsearchvalue(e.target.value)}
+            // onChange={(e) => setsearchvalue(e.target.value)}
             />
             <hr />
             <div className="row">
