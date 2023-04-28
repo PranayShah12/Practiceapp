@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { wrapperContext } from "./App";
+import { WrapperContext } from "./App";
 
 
 export default function Cocktails() {
@@ -8,7 +8,7 @@ export default function Cocktails() {
     const [searchvalue, setsearchvalue] = useState("")
     const navigate = useNavigate()
     // const [loading, setloading] = useState();
-    const { searchFormValue } = useContext(wrapperContext)
+    const { searchFormValue } = useContext(WrapperContext)
 
     useEffect(() => {
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchFormValue}`)

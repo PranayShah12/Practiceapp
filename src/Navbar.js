@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom"
-import { wrapperContext } from "./App";
+import { WrapperContext } from "./App";
 export default function Navbar() {
-    const { serachFormValue, setSearchFormValue } = useContext(wrapperContext);
+    const { serachFormValue, setSearchFormValue } = useContext(WrapperContext);
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
